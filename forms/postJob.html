@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Post a Job</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/css/mainStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <style type="text/css">
+    	.form-field2{
+    		width: 50%;
+    		margin: auto;
+    	}
+    </style>
+  </head>
+  <body>
+
+  	<!-- Navbar --> 
+
+  	<div class="container-flex">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="../index.html">Dream Job</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="../nav/opportunities.html" style="margin-right:20px">Opportunities</a>
+            <a class="nav-item nav-link" href="../nav/getReferral.html" style="margin-right:20px">Get Referrals</a>
+            <a class="nav-item nav-link" href="../nav/jobs.html" style="margin-right:20px">Jobs</a>
+            <a class="nav-item nav-link" href="../nav/myProfile.html" style="margin-right:20px">My Profile</a>
+            <a class="nav-item nav-link" href="../nav/login.html" style="margin-right:20px">Login/Signup</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Form for posting a new job for recruiter -->
+
+      <div style="margin-top: 2%">
+      	<h2 class="text-center font-weight-bold">Post a Job!</h2>
+      </div>
+
+      <div id="formStyle">
+      	<form class="form-field" method="post" action="../JsonData/postJob.php">
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="companyName">Company</label>
+		    <textarea class="form-control" id="companyName" rows="1" name="company" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="roleOffered">Role</label>
+		    <textarea class="form-control" id="roleOffered" rows="1" name="role" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="location">Location</label>
+		    <textarea class="form-control" id="location" rows="1" name="location" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="experienceRequired">Experience Required</label>
+		    <textarea class="form-control" id="experienceRequired" rows="1" name="experienceRequired" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="careerPortalLink">URL of Company's career portal with job link</label>
+		    <input type="url" class="form-control" id="careerPortalLink" name="careerPortalLink" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="aboutTheJob">About the Job</label>
+		    <textarea class="form-control" id="aboutTheJob" rows="3" name="aboutTheJob" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="companyDescription">Company Description</label>
+		    <textarea class="form-control" id="companyDescription" rows="4" name="companyDescription" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="responsibilities">Responsibilities / Role</label>
+		    <textarea class="form-control" id="responsibilities" rows="4" name="responsibilities" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="skillsReq">Skills Required / Good to have</label>
+		    <textarea class="form-control" id="skillsReq" rows="4" name = "skillsReq" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4">
+		  	<label class="form-label" for="incentives">Incentives</label>
+		    <textarea class="form-control" id="incentives" rows="2" name="incentives" required></textarea>
+		  </div>
+
+		  <div class="form-outline mb-4 form-field2">
+		  	<button type="submit" onclick="on_submit()" class="btn btn-primary btn-block mb-4">Submit</button>
+		  </div>
+
+		</form>
+      </div>
+
+      <!-- Footer -->
+
+	  	<footer class="page-footer font-small unique-color-dark">
+		  <div class="row py-2 d-flex"></div>
+		  <div class="container text-center text-md-left mt-5">
+		    <div class="row mt-3">
+		      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">About Dream Job</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>Now look nowhere else and get your dream job here.</p>
+		      </div>
+		      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">For your Doubts</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <a href="#!">Privacy Policy</a>
+		        </p>
+		        <p>
+		          <a href="#!">Terms and Conditions</a>
+		        </p>
+		        <p>
+		          <a href="#!">FAQ</a>
+		        </p>
+		        <p>
+		          <a href="#!">Blog</a>
+		        </p>
+		      </div>
+		      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">Others</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <a href="#!">About</a>
+		        </p>
+		        <p>
+		          <a href="#!">Contact</a>
+		        </p>
+		        <p>
+		          <a href="#!">Our Team</a>
+		        </p>
+		        <p>
+		          <a href="#!">FAQ</a>
+		        </p>
+		      </div>
+		      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+		        <h6 class="text-uppercase font-weight-bold">Contact Us</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <i class="fas fa-map-marker-alt mr-3"></i> Address</p>
+		        <p>
+		          <i class="fas fa-envelope mr-3"></i>dreamjob@gmail.com</p>
+		        <p>
+		          <i class="fas fa-phone mr-3"></i>+91-9999999999</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="container darken-3">
+		    <div class="row">
+		      <div class="col-md-12 py-5">
+		        <div class="mb-5 flex-center">
+		          <!-- Facebook -->
+		          <a class="fb-ic" href="https://www.facebook.com/" target="_blank">
+		            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		          <!-- Twitter -->
+		          <a class="tw-ic" href="https://twitter.com/?lang=en" target="_blank">
+		            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		          <!--Linkedin -->
+		          <a class="li-ic" href="https://www.linkedin.com/" target="_blank">
+		            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+		    <a href="">Dream Job</a>
+		  </div>
+		</footer>
+
+	</div>
+
+  	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  </body>
+ </html>

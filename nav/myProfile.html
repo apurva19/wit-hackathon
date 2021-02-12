@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>My Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/css/mainStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <script src="../assets/js/buttonAlert.js"></script>
+    <style type="text/css">
+      .jobPost{
+        margin-top: 2%;
+        margin-left: 5%;
+        margin-bottom: 3%;
+      }
+      .referralBtn{
+        margin-left : 10%;
+        margin-bottom: 5%;
+      }
+      .referralData{
+        margin : 5%;
+      }
+    </style>
+  </head>
+  <body>
+
+	<!-- Navbar -->
+
+  	<div class="container-flex">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="../index.html">Dream Job</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="opportunities.html" style="margin-right:20px">Opportunities</a>
+            <a class="nav-item nav-link" href="getReferral.html" style="margin-right:20px">Get Referrals</a>
+            <a class="nav-item nav-link" href="jobs.html" style="margin-right:20px">Jobs</a>
+            <a class="nav-item nav-link" href="myProfile.html" style="margin-right:20px">My Profile</a>
+            <a class="nav-item nav-link" href="login.html" style="margin-right:20px">Login/Signup</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Your Profile Section -->
+
+      <div class="myProfile">
+
+      	<!-- Your Profile Information-->
+
+      	<div class="row header">
+      		<div class="col-md-4 profilePic">
+      			<img src="../assets/images/avatar.png" class="img-fluid rounded" alt="" />
+      		</div>
+      		<div class="col-md-4 details" id="userDetails">
+      			<script> 
+	                $(document).ready(function () { 
+	  
+	                    // FETCHING DATA FROM JSON FILE 
+	                    $.getJSON("../JsonData/userData.json",  
+	                            function (data) { 
+	                        var userInfo = ''; 
+
+	                        $.each(data.slice(0,1), function (key, value) { 
+	                             
+	                            userInfo += '<span class="font-weight-bold">Name : ' +  value.name + '</span><br>'; 
+	                            userInfo += '<span class="font-weight-bold">Email : ' +  value.email + '</span><br>'; 
+	                            userInfo += '<span class="font-weight-bold">Current Role : ' +  value.role + '</span><br>'; 
+	                            userInfo += '<span class="font-weight-bold">Current Company : ' +  value.company + '</span><br>'; 
+	                        }); 
+	                          
+	                        $('#userDetails').append(userInfo); 
+	                    }); 
+	                }); 
+	            </script> 
+      		</div>
+      	</div>
+
+      	<!-- Posting and Closing a job functionality for recruiter -->
+
+      	<div class="row jobPost">
+      		<div class="col-md-4">
+      			<a class="btn btn-info" href="../forms/postJob.html" role="button">Post a Job</a>
+      		</div>
+      		<div class="col-md-4">
+      			<a class="btn btn-info" onclick="incompleteAlert()" role="button">Close a Job</a>
+      		</div>
+      		<div class="col-md-4">
+      			<a class="btn btn-info" href="../forms/postOpportunity.html" role="button">Post an Opportunity</a>
+      		</div>
+      	</div>
+
+      	<!-- Providing a referral toggle button and resultant modal -->
+
+      	<div class="row referralBtn">
+      		<form>
+	      		<div class="custom-control custom-switch">
+	      		  <input type="checkbox" class="custom-control-input" id="referralToggleBtn" data-toggle="modal" data-target="#ReferralInfoModal">
+				  <label class="custom-control-label" for="referralToggleBtn"><h3>Do you Want to provide a referral?</h3></label>
+				</div>
+			</form>
+      	</div>
+      	<div>
+			<div class="modal fade" id="ReferralInfoModal" tabindex="-1" aria-labelledby="ReferralInfoModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="ReferralInfoModalLabel">Provide a Referral</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <div>
+				      	<form method="post" action="../JsonData/limitSubmit.php">
+						  <div class="form-outline mb-4">
+						  	<label class="form-label" for="limit">Limit on number of applications recieved</label>
+						    <textarea class="form-control" id="limit" name="limit" rows="1"></textarea>
+						  </div>
+
+						  <div class="form-outline mb-4">
+						  	<label class="form-label" for="otherNotes">Other Notes for applicants</label>
+						    <textarea class="form-control" id="otherNotes" name="notes" name="notes" rows="1"></textarea>
+						  </div>
+			        </div>
+			      	<div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="submit" onclick="on_submit()" class="btn btn-primary">Submit</button>
+			      	</div>
+			      		</form>
+			    </div>
+			  </div>
+			</div>
+      	</div>
+
+      	<!-- Data recieved from applicants regarding referrals -->
+
+      	<div class="row referralData">
+      		<h2 class="text-center font-weight-bold">Referral Applications</h2>
+      		<table class="table table-bordered table-hover">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Mark</th>
+			      <th scope="col">Name</th>
+			      <th scope="col">Email Id</th>
+			      <th scope="col">Job Id(s)</th>
+			      <th scope="col">Resume link</th>
+			      <th scope="col">Any Message</th>
+			    </tr>
+			  </thead>
+			  <tbody id="applicantData">
+			  	<script> 
+	                $(document).ready(function () { 
+	  
+	                    // FETCHING DATA FROM JSON FILE 
+	                    $.getJSON("../JsonData/referralTable.json",  
+	                            function (data) { 
+	                        var application = ''; 
+	  
+	                        // ITERATING THROUGH OBJECTS 
+	                        $.each(data, function (key, value) { 
+	  
+	                            //CONSTRUCTION OF ROWS HAVING 
+	                            // DATA FROM JSON OBJECT 
+	                            application += '<tr>';
+
+	                            application += '<th scope="row"><input type="checkbox" name="selected"></th>';
+	                             
+	                            application += '<td>' +  value.name + '</td>'; 
+	  
+	                            application += '<td>' +  value.email + '</td>'; 
+	  
+	                            application += '<td>' +  value.jobId + '</td>'; 
+	  
+	                            application += '<td><a href="' + value.resumeLink + '" target="_blank">Click for Resume</a></td>';
+
+	                            application += '<td>' +  value.message + '</td>';  
+	  
+	                            application += '</tr>'; 
+	                        }); 
+	                          
+	                        //INSERTING ROWS INTO TABLE  
+	                        $('#applicantData').append(application); 
+	                    }); 
+	                }); 
+	            </script> 
+			  </tbody>
+			</table>
+      	</div>
+      </div>
+
+      <!-- Footer -->
+
+	  	<footer class="page-footer font-small unique-color-dark">
+		  <div class="row py-2 d-flex"></div>
+		  <div class="container text-center text-md-left mt-5">
+		    <div class="row mt-3">
+		      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">About Dream Job</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>Now look nowhere else and get your dream job here.</p>
+		      </div>
+		      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">For your Doubts</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <a href="#!">Privacy Policy</a>
+		        </p>
+		        <p>
+		          <a href="#!">Terms and Conditions</a>
+		        </p>
+		        <p>
+		          <a href="#!">FAQ</a>
+		        </p>
+		        <p>
+		          <a href="#!">Blog</a>
+		        </p>
+		      </div>
+		      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">Others</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <a href="#!">About</a>
+		        </p>
+		        <p>
+		          <a href="#!">Contact</a>
+		        </p>
+		        <p>
+		          <a href="#!">Our Team</a>
+		        </p>
+		        <p>
+		          <a href="#!">FAQ</a>
+		        </p>
+		      </div>
+		      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+		        <h6 class="text-uppercase font-weight-bold">Contact Us</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <i class="fas fa-map-marker-alt mr-3"></i> Address</p>
+		        <p>
+		          <i class="fas fa-envelope mr-3"></i>dreamjob@gmail.com</p>
+		        <p>
+		          <i class="fas fa-phone mr-3"></i>+91-9999999999</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="container darken-3">
+		    <div class="row">
+		      <div class="col-md-12 py-5">
+		        <div class="mb-5 flex-center">
+		          <!-- Facebook -->
+		          <a class="fb-ic" href="https://www.facebook.com/" target="_blank">
+		            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		          <!-- Twitter -->
+		          <a class="tw-ic" href="https://twitter.com/?lang=en" target="_blank">
+		            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		          <!--Linkedin -->
+		          <a class="li-ic" href="https://www.linkedin.com/" target="_blank">
+		            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+		    <a href="">Dream Job</a>
+		  </div>
+		</footer>
+
+	</div>
+
+  	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  </body>
+ </html>

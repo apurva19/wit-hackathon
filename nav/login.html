@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login/Signup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../assets/css/mainStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <script src="../assets/js/buttonAlert.js"></script>
+  </head>
+  <body>
+
+  	<!-- Navbar -->
+
+  	<div class="container-flex">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="../index.html">Dream Job</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="opportunities.html" style="margin-right:20px">Opportunities</a>
+            <a class="nav-item nav-link" href="getReferral.html" style="margin-right:20px">Get Referrals</a>
+            <a class="nav-item nav-link" href="jobs.html" style="margin-right:20px">Jobs</a>
+            <a class="nav-item nav-link" href="myProfile.html" style="margin-right:20px">My Profile</a>
+            <a class="nav-item nav-link" href="login.html" style="margin-right:20px">Login/Signup</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Login / Register tabs -->
+
+      <div id="formStyle">
+      	<!-- Pills navs -->
+		<ul class="nav nav-pills nav-justified mb-3 form-field" id="loginForm" role="tablist">
+		  <li class="nav-item" role="presentation">
+		    <a class="nav-link active" id="tab-login" data-mdb-toggle="tab" href="login.html" role="tab" aria-controls="login" aria-selected="true">Login</a>
+		  </li>
+		  <li class="nav-item" role="presentation">
+		    <a class="nav-link" id="tab-register" data-mdb-toggle="tab" href="register.html" role="tab" aria-controls="register"
+		      aria-selected="false">Register</a>
+		  </li>
+		</ul>
+		<!-- Pills navs -->
+
+		<!-- Login Functionality -->
+
+		<!-- Pills content -->
+		<div class="tab-content form-field">
+		  <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="tab-login">
+		    <form>
+		      <div class="text-center mb-3">
+		        <p>Sign in with:</p>
+		        <button type="button" onclick="incompleteAlert()" class="btn btn-primary btn-floating mx-1">
+		          <i class="fab fa-facebook-f"></i>
+		        </button>
+
+		        <button type="button" onclick="incompleteAlert()" class="btn btn-primary btn-floating mx-1">
+		          <i class="fab fa-google"></i>
+		        </button>
+
+		        <button type="button" onclick="incompleteAlert()" class="btn btn-primary btn-floating mx-1">
+		          <i class="fab fa-twitter"></i>
+		        </button>
+
+		        <button type="button" onclick="incompleteAlert()" class="btn btn-primary btn-floating mx-1">
+		          <i class="fab fa-github"></i>
+		        </button>
+		      </div>
+
+		      <p class="text-center">or:</p>
+
+		      <!-- Email input -->
+		      <div class="form-outline mb-4">
+		        <input type="text" id="loginName" class="form-control" required />
+		        <label class="form-label" for="loginName">Username</label>
+		      </div>
+
+		      <!-- Password input -->
+		      <div class="form-outline mb-4">
+		        <input type="password" id="loginPassword" class="form-control" required />
+		        <label class="form-label" for="loginPassword">Password</label>
+		      </div>
+
+		      <!-- 2 column grid layout -->
+		      <div class="row mb-4">
+		        <div class="col-md-6 d-flex justify-content-center">
+		          <!-- Checkbox -->
+		          <div class="form-check mb-3 mb-md-0">
+		            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+		            <label class="form-check-label" for="loginCheck"> Remember me </label>
+		          </div>
+		        </div>
+
+		        <div class="col-md-6 d-flex justify-content-center">
+		          <!-- Simple link -->
+		          <a onclick="incompleteAlert()">Forgot password?</a>
+		        </div>
+		      </div>
+
+		      <!-- Submit button -->
+		      <button type="submit" onclick="incompleteAlert()" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+		      <!-- Register buttons -->
+		      <div class="text-center">
+		        <p>Not a member? <a href="register.html">Register</a></p>
+		      </div>
+		    </form>
+		  </div>
+		</div>
+	  </div>
+
+      <!-- Footer -->
+
+	  	<footer class="page-footer font-small unique-color-dark">
+		  <div class="row py-2 d-flex"></div>
+		  <div class="container text-center text-md-left mt-5">
+		    <div class="row mt-3">
+		      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">About Dream Job</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>Now look nowhere else and get your dream job here.</p>
+		      </div>
+		      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">For your Doubts</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <a href="#!">Privacy Policy</a>
+		        </p>
+		        <p>
+		          <a href="#!">Terms and Conditions</a>
+		        </p>
+		        <p>
+		          <a href="#!">FAQ</a>
+		        </p>
+		        <p>
+		          <a href="#!">Blog</a>
+		        </p>
+		      </div>
+		      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+		        <h6 class="text-uppercase font-weight-bold">Others</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <a href="#!">About</a>
+		        </p>
+		        <p>
+		          <a href="#!">Contact</a>
+		        </p>
+		        <p>
+		          <a href="#!">Our Team</a>
+		        </p>
+		        <p>
+		          <a href="#!">FAQ</a>
+		        </p>
+		      </div>
+		      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+		        <h6 class="text-uppercase font-weight-bold">Contact Us</h6>
+		        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+		        <p>
+		          <i class="fas fa-map-marker-alt mr-3"></i> Address</p>
+		        <p>
+		          <i class="fas fa-envelope mr-3"></i>dreamjob@gmail.com</p>
+		        <p>
+		          <i class="fas fa-phone mr-3"></i>+91-9999999999</p>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="container darken-3">
+		    <div class="row">
+		      <div class="col-md-12 py-5">
+		        <div class="mb-5 flex-center">
+		          <!-- Facebook -->
+		          <a class="fb-ic" href="https://www.facebook.com/" target="_blank">
+		            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		          <!-- Twitter -->
+		          <a class="tw-ic" href="https://twitter.com/?lang=en" target="_blank">
+		            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		          <!--Linkedin -->
+		          <a class="li-ic" href="https://www.linkedin.com/" target="_blank">
+		            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+		          </a>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+		    <a href="">Dream Job</a>
+		  </div>
+		</footer>
+
+	</div>
+
+  	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+  </body>
+ </html>
